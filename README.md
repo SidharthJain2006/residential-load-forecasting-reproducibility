@@ -228,16 +228,13 @@ The principal scripts and directories are:
 
 | Path | Description |
 |---|---|
-| `Data/UCI/processed/` | Corrected UCI processed windows, manifest, scaler, and preprocessing metadata |
-| `Data/MORED/Corrected_V3_SessionSplit/` | Corrected MORED V3 processed data, windows, manifest, scaler, and metadata |
-| `Data/London/splits/` | Selected household train, validation, and test CSVs plus scaler |
-| `Cache/London_DAT_corrected_fullbes/` | London BES feature caches |
-| `Results/` | UCI and MORED summaries, per-seed metrics, and statistical tables |
-| `Results_DAT_corrected_fullbes/` | London predictions, per-seed metrics, summaries, and metadata |
-| `supplementary/` | Supplementary prediction and audit archive |
-| `figures/` | Research figures |
-| `manuscript/` | Manuscript materials |
-| `docs/` | Protocol, validation, and statistical documentation |
+| `Cache/London_DAT_corrected_fullbes/` | Six cached London BES feature arrays (train/validation/test; BES ON/OFF) |
+| `Results/UCI/` | Aggregate UCI summaries, audited metrics, and bootstrap results |
+| `Results/MORED/` | Aggregate MORED V3 summaries, per-seed metrics, and session-level analyses |
+| `Results_DAT_corrected_fullbes/` | London per-seed metrics, aggregate summaries, and run metadata |
+| `figures/` | Research figures currently included in the repository |
+| `manuscript/` | Manuscript DOCX included with the repository |
+| `docs/` | Experiment protocol, validation, artifact-completeness, and statistical documentation |
 
 Additional repository documentation:
 
@@ -248,7 +245,11 @@ Additional repository documentation:
 - `PUBLIC_RELEASE_CHECKLIST.md`
 - `README_MORED_V3_SessionSplit.md`
 
-Trained model checkpoint files are not included. The repository preserves selected prediction arrays, actual targets, configurations, metrics, audits, and logs needed to inspect reported outputs. Recreating model weights requires rerunning the training scripts.
+The `Data/` and `supplementary/` directories are **not included in the current public repository tree**. Users must obtain the original datasets and create the required local data files by running the documented preprocessing workflows.
+
+The London experiment additionally requires household split CSVs and a scaler described in `PROVENANCE.md`. These files are not currently committed. The London feature caches and aggregate result files listed above are committed.
+
+Trained model checkpoint files and the complete per-timestamp prediction/actual-target archive are not included in the current public repository. The committed materials include source scripts, aggregate result tables, per-seed metrics, statistical summaries, audit scripts, London feature caches, run metadata, and checksum/provenance documentation. Recreating processed inputs and model weights requires obtaining the original datasets and running the documented preparation and training workflows.
 
 ---
 
@@ -288,9 +289,9 @@ The original raw UCI, MORED, and full London source archives are not redistribut
 
 ### 8.1 UCI
 
-The corrected processed windows are documented under `Data/UCI/processed/`.
+The `Data/UCI/` directory is created locally; it is not included in the current public repository. Obtain the original UCI dataset and run the preparation script before validation or training.
 
-Validate the release:
+Validate the locally generated release:
 
 ```bash
 python validate_uci_release.py
@@ -325,7 +326,7 @@ python audit_uci_predictions.py
 python statistical_analysis_uci_v2.py --bootstrap-reps 5000
 ```
 
-The supplementary archive also contains selected saved prediction and audit outputs. Check the archive contents and the corresponding documentation before extracting or using them.
+The complete supplementary prediction and audit archive is not included in the current public repository. Aggregate metrics and statistical outputs are available under `Results/UCI/`.
 
 ### 8.2 MORED V3
 
@@ -385,7 +386,7 @@ The experiment uses household `MAC000147` from the UK Power Networks Low Carbon 
 
 The original full London archive is not bundled.
 
-The selected household's corrected split files, scaler, feature caches, final predictions, metadata, and helper code are documented in the repository.
+The repository includes London BES feature caches, per-seed metrics, aggregate summaries, run metadata, and helper code. It does not currently include the household split CSVs or scaler required to regenerate those caches. `PROVENANCE.md` records that these files came from an earlier archive; obtain and place the permitted source-derived split files locally before attempting a fresh run.
 
 Run a smoke test:
 
@@ -399,7 +400,7 @@ Run the full five-seed BES OFF/ON experiment:
 python run_london_dat_corrected_fullbes.py
 ```
 
-The script imports `run_bes_ablation.py` and expects the supplied:
+The script imports `run_bes_ablation.py` and expects the following local files, which are not included in the current public repository:
 
 ```text
 Data/London/splits/train.csv
@@ -407,6 +408,8 @@ Data/London/splits/val.csv
 Data/London/splits/test.csv
 Data/London/splits/scaler.pkl
 ```
+
+A smoke test that requires these inputs cannot be considered a clean-clone test until the split files and scaler are supplied locally.
 
 ---
 
@@ -460,7 +463,7 @@ The source code, model implementations, experimental configurations, preprocessi
 
 [https://github.com/SidharthJain2006/residential-load-forecasting-reproducibility](https://github.com/SidharthJain2006/residential-load-forecasting-reproducibility)
 
-The original datasets are not redistributed in the repository and should be obtained from their respective sources, as cited in the associated manuscript.
+The original datasets are not redistributed in the repository and should be obtained from their respective sources, as cited in this manuscript.
 
 ---
 
