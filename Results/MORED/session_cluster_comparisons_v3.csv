@@ -1,0 +1,6 @@
+model_vs_vanilla_transformer,delta_RMSE_W,RMSE_cluster_bootstrap_95CI,sessions_higher_RMSE,session_count,RMSE_exact_sign_p,RMSE_Holm_p,delta_MAE_W,MAE_cluster_bootstrap_95CI,sessions_higher_MAE,session_count_MAE,MAE_exact_sign_p,MAE_Holm_p
+DAT,2.6046,1.6771;3.6589,4,4,0.125,1.0,2.7414,1.9693;3.4457,4,4,0.125,1.0
+LSTM,-0.2988,-0.6596;-0.0528,0,4,0.125,1.0,-0.8463,-1.1332;-0.5893,0,4,0.125,1.0
+DLinear,24.2852,14.0517;41.1819,4,4,0.125,1.0,21.667,13.0818;36.9319,4,4,0.125,1.0
+PatchTST-style,20.6732,18.6600;22.6863,4,4,0.125,1.0,18.7908,16.3882;20.8387,4,4,0.125,1.0
+TimesFM 2.5 zero-shot,4.0027,1.7121;6.1923,4,4,0.125,1.0,3.7879,1.3529;6.6809,4,4,0.125,1.0

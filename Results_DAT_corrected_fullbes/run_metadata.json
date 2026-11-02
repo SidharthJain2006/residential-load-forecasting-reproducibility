@@ -1,0 +1,31 @@
+{
+  "cache_version": "london-dat-conv-calendar-fullbes-v1",
+  "device": "mps",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "lookback": 336,
+  "forecast": 48,
+  "stride": 48,
+  "primary_vmd_k": 5,
+  "primary_vmd_alpha": 2000,
+  "secondary_vmd_k": 2,
+  "bes_padding": 48,
+  "architecture": "mode-specific Conv1d; VMD centre-frequency projection per channel; hour and weekday embeddings; positional encoding; Transformer encoder; direct forecast head",
+  "channels": 10,
+  "training": {
+    "batch_size": 64,
+    "max_epochs": 100,
+    "learning_rate": 0.001,
+    "lr_patience": 5,
+    "early_stopping_patience": 10,
+    "min_delta": 0.0001
+  },
+  "bes_definition": "BES ON applies left-edge reflection, a historical-similarity right extension, and weighted overlap fusion. BES OFF applies none of these three boundary components.",
+  "causality_note": "When BES is ON, overlap fusion uses the preceding window and current window only; no later window revises an earlier forecast origin.",
+  "interpretation_note": "This is a new corrected-architecture experiment. Do not conflate these outputs with the previously recovered five-mode linear-projection BES run or the manuscript's historical multi-household London benchmark."
+}

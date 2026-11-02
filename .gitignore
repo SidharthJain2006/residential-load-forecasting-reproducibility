@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.ipynb_checkpoints/
+.DS_Store
+.AppleDouble
+
+# Regenerable caches (London final cache is included in the staging archive)
+Cache/UCI_DAT_Corrected_V2/
+Cache/MORED_DAT_Corrected_V3_SessionSplit/
+Cache/MORED_DAT_Corrected_V2/
+
+# Raw source files must be downloaded separately
+Data/UCI/raw/*
+Data/MORED/raw/*
+Data/London/raw/*

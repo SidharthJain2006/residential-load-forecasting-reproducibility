@@ -1,0 +1,3 @@
+Metric,Test,Statistic,p_value_approx,Kendall_W,N_recording_sessions,N_models
+RMSE,Friedman repeated-block (exploratory),19.14285714285714,0.001807843315704598,0.957142857142857,4,6
+MAE,Friedman repeated-block (exploratory),19.0,0.0019221368209430395,0.95,4,6

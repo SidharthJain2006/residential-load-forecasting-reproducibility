@@ -1,0 +1,13 @@
+# Direct dependencies used by the included experiment scripts.
+# This is NOT a fully resolved lockfile; capture exact versions from the validated Mac environment.
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+torch
+tqdm
+vmdpy
+joblib
+huggingface_hub
+timesfm[torch]==3.0.2

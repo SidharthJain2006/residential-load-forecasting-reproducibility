@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Please cite the associated article after publication; until then, cite the dataset sources listed in README.md."
+title: "Does Causal Decomposition Improve Residential Load Forecasting? A Leakage-Aware, Multi-Dataset Reproducibility Study of a Decomposition-Augmented Transformer"
+authors:
+  - family-names: Jain
+    given-names: Sidharth
+  - family-names: Chhabra
+    given-names: Aditya
+  - family-names: Hazra
+    given-names: Shubham
+  - family-names: Kumar
+    given-names: Inba Senthil
+  - family-names: K
+    given-names: Sathya
+date-released: 2026-11-02
+version: "0.1.0-pre-release"
