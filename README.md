@@ -180,17 +180,14 @@ The final predictions and feature cache are preserved for audit. The run imports
 
 ## Important limitations
 
-- This is a load-only study; no weather-informed baseline or other exogenous covariates are included.
-- UCI and MORED are corrected within-dataset reconstructions; earlier experiment configurations were not fully recoverable.
-- MORED V3 has only four independent original test-session clusters. Five model seeds quantify optimisation variability, not additional independent data sessions.
-- All six MORED models have negative R², and several models exhibit substantial under-dispersion. The London BES runs also have negative R².
-- London evaluates one household only and is not a multi-household benchmark.
-- MAPE is sensitive to near-zero actual demand and should not be the primary ranking metric.
-- PatchTST-style models are custom PyTorch implementations, not exact upstream NeuralForecast PatchTST runs.
-- TimesFM 2.5 is evaluated zero-shot; it is not fine-tuned on these datasets.
-- DAT uses deterministic hour-of-day and weekday embeddings computed from input timestamps, whereas several baseline implementations do not. Consequently, the UCI and MORED DAT-versus-baseline differences cannot be attributed to decomposition alone; they compare complete model configurations. A controlled calendar-feature ablation would be needed to isolate the incremental effect of decomposition.
-- The results do not establish general DAT superiority, statistical equivalence, or cross-household/cross-dataset transfer.
+- ## Important limitations
 
+- The UCI and MORED experiments are corrected reconstructions because the complete configurations of earlier experimental runs were not recoverable.
+- MORED statistical analysis is limited by four independent test recording-session clusters. The five model seeds measure optimisation variability, not additional independent data sessions.
+- The London experiment evaluates only household MAC000147 and does not support conclusions about the wider household population.
+- DAT uses deterministic hour-of-day and weekday embeddings that are not included in every baseline. Therefore, the comparisons evaluate complete model configurations and do not isolate the contribution of decomposition alone.
+- No weather-informed or other exogenous-variable forecasting baseline is evaluated.
+  
 ## Citation and release
 
 The associated article has not yet been assigned a publication DOI. Until the article and archive are approved, cite the dataset sources listed above and the repository's pre-release version in `CITATION.cff`. A code licence has intentionally not been selected; all authors and code contributors must agree before public release. See `DATA_RIGHTS_REVIEW.md`, `LICENSE_SELECTION_REQUIRED.md`, and `PUBLIC_RELEASE_CHECKLIST.md` before changing repository visibility.
