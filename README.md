@@ -388,7 +388,7 @@ The original full London archive is not bundled.
 
 The repository includes London BES feature caches, per-seed metrics, aggregate summaries, run metadata, and helper code. It does not currently include the household split CSVs or scaler required to regenerate those caches. `PROVENANCE.md` records that these files came from an earlier archive; obtain and place the permitted source-derived split files locally before attempting a fresh run.
 
-Run a smoke test:
+After obtaining and placing all four required local split files and the scaler listed above, run the smoke test:
 
 ```bash
 python run_london_dat_corrected_fullbes.py --smoke-test
