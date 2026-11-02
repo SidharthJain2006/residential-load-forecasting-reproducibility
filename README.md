@@ -1,5 +1,3 @@
-# Residential Load Forecasting Reproducibility Study
-
 **Does Causal Decomposition Improve Residential Load Forecasting? A Leakage-Aware, Multi-Dataset Reproducibility Study of a Decomposition-Augmented Transformer**
 
 This repository contains the corrected experiment scripts, selected processed inputs, final manuscript, result summaries, audit outputs, and the final London Boundary End-effect mitigation (BES) reproducibility package. It is a **private pre-release research archive**, not yet a public software/data release.
@@ -22,36 +20,36 @@ Trainable-model values are means ± sample standard deviations across five rando
 
 ### UCI (RMSE and MAE in kW)
 
-| Model | RMSE | MAE | MAPE (%) | R² | StdR |
-|---|---:|---:|---:|---:|---:|
-| Vanilla Transformer | 0.782735 ± 0.009840 | 0.567287 ± 0.022962 | 107.809627 ± 14.785082 | 0.173908 ± 0.020779 | 0.541370 ± 0.036280 |
-| LSTM | 0.820548 ± 0.004493 | 0.632089 ± 0.006222 | 135.306918 ± 3.781718 | 0.092260 ± 0.009930 | 0.425470 ± 0.052066 |
-| DLinear | 0.849813 ± 0.011597 | 0.610658 ± 0.012286 | 105.389372 ± 4.979169 | 0.026233 ± 0.026542 | 0.681856 ± 0.025599 |
-| PatchTST-style | 0.859433 ± 0.004283 | 0.615488 ± 0.001901 | 105.965146 ± 1.050743 | 0.004192 ± 0.009906 | 0.471566 ± 0.006315 |
-| TimesFM 2.5 (zero-shot) | 0.890434 | 0.587980 | 79.179894 | −0.068923 | 0.514655 |
-| DAT | 0.994470 ± 0.033898 | 0.761134 ± 0.028644 | 158.953 ± 8.718 | −0.334534 ± 0.091419 | 0.819308 ± 0.063380 |
+| **Model**               | **RMSE**            | **MAE**             | **MAPE (%)**           | **R²**               | **StdR**            |
+| ----------------------- | ------------------- | ------------------- | ---------------------- | -------------------- | ------------------- |
+| Vanilla Transformer     | 0.782735 ± 0.009840 | 0.567287 ± 0.022962 | 107.809627 ± 14.785082 | 0.173908 ± 0.020779  | 0.541370 ± 0.036280 |
+| LSTM                    | 0.820548 ± 0.004493 | 0.632089 ± 0.006222 | 135.306918 ± 3.781718  | 0.092260 ± 0.009930  | 0.425470 ± 0.052066 |
+| DLinear                 | 0.849813 ± 0.011597 | 0.610658 ± 0.012286 | 105.389372 ± 4.979169  | 0.026233 ± 0.026542  | 0.681856 ± 0.025599 |
+| PatchTST-style          | 0.859433 ± 0.004283 | 0.615488 ± 0.001901 | 105.965146 ± 1.050743  | 0.004192 ± 0.009906  | 0.471566 ± 0.006315 |
+| TimesFM 2.5 (zero-shot) | 0.890434            | 0.587980            | 79.179894              | −0.068923            | 0.514655            |
+| DAT                     | 0.994470 ± 0.033898 | 0.761134 ± 0.028644 | 158.953 ± 8.718        | −0.334534 ± 0.091419 | 0.819308 ± 0.063380 |
 
 The Vanilla Transformer has the lowest mean RMSE and MAE on this corrected UCI test set. DAT does not improve either metric over the Vanilla Transformer. The one-token univariate iTransformer run is excluded from the principal ranking because cross-variable attention cannot be meaningfully exercised with a single input variate.
 
 ### MORED V3 (RMSE and MAE in W)
 
-| Model | RMSE | MAE | MAPE (%) | R² | StdR |
-|---|---:|---:|---:|---:|---:|
-| Vanilla Transformer | 126.478 ± 0.185 | 86.924 ± 0.075 | 139.805 ± 1.764 | −0.0192 ± 0.0030 | 0.0978 ± 0.0076 |
-| LSTM | 126.118 ± 0.207 | 85.970 ± 0.107 | 137.440 ± 1.205 | −0.0134 ± 0.0033 | 0.0178 ± 0.0180 |
-| DAT | 128.751 ± 0.390 | 89.323 ± 0.409 | 134.209 ± 0.700 | −0.0561 ± 0.0064 | 0.1778 ± 0.0180 |
-| TimesFM 2.5 (zero-shot) | 130.868 | 90.388 | 145.327 | −0.0911 | 0.3873 |
-| DLinear | 146.011 ± 0.328 | 103.382 ± 0.289 | 149.267 ± 1.853 | −0.3583 ± 0.0061 | 0.6202 ± 0.0052 |
-| PatchTST-style | 146.976 ± 1.417 | 105.164 ± 1.261 | 113.900 ± 0.706 | −0.3764 ± 0.0264 | 0.3531 ± 0.0136 |
+| **Model**               | **RMSE**        | **MAE**         | **MAPE (%)**    | **R²**           | **StdR**        |
+| ----------------------- | --------------- | --------------- | --------------- | ---------------- | --------------- |
+| Vanilla Transformer     | 126.478 ± 0.185 | 86.924 ± 0.075  | 139.805 ± 1.764 | −0.0192 ± 0.0030 | 0.0978 ± 0.0076 |
+| LSTM                    | 126.118 ± 0.207 | 85.970 ± 0.107  | 137.440 ± 1.205 | −0.0134 ± 0.0033 | 0.0178 ± 0.0180 |
+| DAT                     | 128.751 ± 0.390 | 89.323 ± 0.409  | 134.209 ± 0.700 | −0.0561 ± 0.0064 | 0.1778 ± 0.0180 |
+| TimesFM 2.5 (zero-shot) | 130.868         | 90.388          | 145.327         | −0.0911          | 0.3873          |
+| DLinear                 | 146.011 ± 0.328 | 103.382 ± 0.289 | 149.267 ± 1.853 | −0.3583 ± 0.0061 | 0.6202 ± 0.0052 |
+| PatchTST-style          | 146.976 ± 1.417 | 105.164 ± 1.261 | 113.900 ± 0.706 | −0.3764 ± 0.0264 | 0.3531 ± 0.0136 |
 
 LSTM has the lowest mean RMSE and MAE numerically, narrowly ahead of the Vanilla Transformer. Its very low `StdR` indicates severe prediction-variance collapse. All six models have negative R². DAT does not improve RMSE or MAE over the Vanilla Transformer on this MORED V3 split.
 
 ### London BES ablation (RMSE and MAE in kWh per half-hour reading)
 
-| Configuration | RMSE | MAE | R² | StdR |
-|---|---:|---:|---:|---:|
-| DAT, BES off | 0.164207 ± 0.002561 | 0.108367 ± 0.002577 | −0.539934 ± 0.047940 | 0.559785 ± 0.027437 |
-| DAT, BES on | 0.164217 ± 0.002546 | 0.108376 ± 0.002560 | −0.540119 ± 0.047667 | 0.559913 ± 0.027340 |
+| **Configuration** | **RMSE**            | **MAE**             | **R²**               | **StdR**            |
+| ----------------- | ------------------- | ------------------- | -------------------- | ------------------- |
+| DAT, BES off      | 0.164207 ± 0.002561 | 0.108367 ± 0.002577 | −0.539934 ± 0.047940 | 0.559785 ± 0.027437 |
+| DAT, BES on       | 0.164217 ± 0.002546 | 0.108376 ± 0.002560 | −0.540119 ± 0.047667 | 0.559913 ± 0.027340 |
 
 BES ON combines left-edge reflection, a historical-similarity right extension, and weighted overlap fusion. BES OFF uses none of these boundary components. The difference is negligible: BES ON has a very slightly higher RMSE (about 0.006%). This one-household ablation does not demonstrate a practical accuracy benefit from BES.
 
@@ -87,7 +85,7 @@ The reported experiments were run with Python 3.12.4 on Apple Silicon/macOS 26.5
 
 For the closest match to the recorded environment:
 
-```bash
+```
 python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
@@ -104,20 +102,20 @@ The processed UCI and MORED V3 inputs, London splits, and saved predictions are 
 
 The corrected processed windows are already included under `Data/UCI/processed/`. Validate them with:
 
-```bash
+```
 python validate_uci_release.py
 ```
 
 To regenerate the UCI processed split, download `household_power_consumption.txt` from the [UCI dataset record](https://archive.ics.uci.edu/dataset/235/individual+household+electric+power+consumption), place it at `Data/UCI/raw/household_power_consumption.txt`, and run:
 
-```bash
+```
 python prepare_uci.py
 python validate_uci_release.py
 ```
 
 To rerun the five-seed models from the repository root:
 
-```bash
+```
 python train_uci_vanilla_transformer_corrected_v2_1.py --train
 python train_uci_dat_corrected.py --prepare-features
 python train_uci_dat_corrected.py --train
@@ -131,7 +129,7 @@ python statistical_analysis_uci_v2.py --bootstrap-reps 5000
 
 The final prediction files are also in the supplementary archive. To extract those saved outputs into the expected `Results/` folders before auditing them, run from the repository root:
 
-```bash
+```
 unzip -o supplementary/FINAL_UCI_MORED_V3_PREDICTIONS_AND_AUDITS.zip -d .
 python audit_uci_predictions.py
 python statistical_analysis_uci_v2.py --bootstrap-reps 5000
@@ -143,7 +141,7 @@ The original `APT6.csv` file is not bundled. Obtain the **WP data → Semi-Detac
 
 Then run:
 
-```bash
+```
 python prepare_mored_sessionsplit.py
 python validate_mored_sessionsplit.py
 python train_mored_vanilla_dat_sessionsplit.py
@@ -165,7 +163,7 @@ The corrected London split files, scaler, feature caches, final predictions, met
 
 From the repository root, first run a smoke test and then the full five-seed BES OFF/ON experiment:
 
-```bash
+```
 python run_london_dat_corrected_fullbes.py --smoke-test
 python run_london_dat_corrected_fullbes.py
 ```
@@ -180,14 +178,12 @@ The final predictions and feature cache are preserved for audit. The run imports
 
 ## Important limitations
 
-- ## Important limitations
-
 - The UCI and MORED experiments are corrected reconstructions because the complete configurations of earlier experimental runs were not recoverable.
 - MORED statistical analysis is limited by four independent test recording-session clusters. The five model seeds measure optimisation variability, not additional independent data sessions.
-- The London experiment evaluates only household MAC000147 and does not support conclusions about the wider household population.
+- The London experiment evaluates only household `MAC000147` and does not support conclusions about the wider household population.
 - DAT uses deterministic hour-of-day and weekday embeddings that are not included in every baseline. Therefore, the comparisons evaluate complete model configurations and do not isolate the contribution of decomposition alone.
 - No weather-informed or other exogenous-variable forecasting baseline is evaluated.
-  
+
 ## Citation and release
 
 The associated article has not yet been assigned a publication DOI. Until the article and archive are approved, cite the dataset sources listed above and the repository's pre-release version in `CITATION.cff`. A code licence has intentionally not been selected; all authors and code contributors must agree before public release. See `DATA_RIGHTS_REVIEW.md`, `LICENSE_SELECTION_REQUIRED.md`, and `PUBLIC_RELEASE_CHECKLIST.md` before changing repository visibility.
